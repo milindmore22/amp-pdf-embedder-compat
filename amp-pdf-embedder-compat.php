@@ -26,7 +26,7 @@ namespace Google\AMP_PDF_Embedder_Compat;
  * @return bool Is AMP.
  */
 function is_amp() {
-	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+	return function_exists( 'amp_is_request' ) && amp_is_request();
 }
 
 /**
@@ -37,7 +37,7 @@ function add_hooks() {
 	/**
 	 *  Check if PDF Embedder plugin is active.
 	 */
-	if ( class_exists( 'pdfemb_basic_pdf_embedder' ) && is_amp() ) {
+	if ( class_exists( 'PDF_Embedder_Basic' ) && is_amp() ) {
 
 		/**
 		 * The Action will override the scripts and styles.
